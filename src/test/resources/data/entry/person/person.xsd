@@ -1,0 +1,244 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:element name="persons">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element name="person" minOccurs="1" maxOccurs="unbounded">
+               <xs:complexType>
+                  <xs:sequence>
+                     <xs:element name="recordid" minOccurs="1" maxOccurs="1" />
+                     <xs:element name="createentrypage" minOccurs="1"
+                        maxOccurs="1">
+                        <xs:complexType>
+                           <xs:sequence>
+                              <xs:element name="thirdpartyentry" minOccurs="0" />
+                              <xs:element name="dataowner" minOccurs="0" />
+                              <xs:element name="justification" minOccurs="0" />
+                              <xs:element name="staffid" minOccurs="0" />
+                              <xs:element name="staffname" minOccurs="0" />
+                              <xs:element name="usergroup" minOccurs="0" />
+                           </xs:sequence>
+                        </xs:complexType>
+                     </xs:element>
+                     <xs:element name="persondetailspage" minOccurs="1"
+                        maxOccurs="1">
+                        <xs:complexType>
+                           <xs:sequence>
+                              <xs:element name="justificationsection"
+                                 minOccurs="0" maxOccurs="1">
+                                 <xs:complexType>
+                                    <xs:sequence>
+                                       <xs:element name="justification"
+                                          minOccurs="0" />
+                                       <xs:element name="staffid" minOccurs="0" />
+                                       <xs:element name="staffname"
+                                          minOccurs="0" />
+                                    </xs:sequence>
+                                 </xs:complexType>
+                              </xs:element>
+                              <xs:element name="accesscontrolsection"
+                                 minOccurs="0" maxOccurs="1">
+                                 <xs:complexType>
+                                    <xs:sequence>  
+                                       <xs:element name="usergroup"
+                                          minOccurs="0" />
+                                    </xs:sequence>
+                                 </xs:complexType>
+                              </xs:element>
+                              <xs:element name="personnames">
+                                 <xs:complexType>
+                                    <xs:sequence>
+                                       <xs:element name="personname"
+                                          minOccurs="0" maxOccurs="unbounded">
+                                          <xs:complexType>
+                                             <xs:sequence>
+                                                <xs:element name="usage"
+                                                   minOccurs="0" />
+                                                <xs:element name="surname"
+                                                   minOccurs="0" />
+                                                <xs:element name="forenames"
+                                                   minOccurs="0">
+                                                   <xs:complexType>
+                                                      <xs:sequence>
+                                                         <xs:element
+                                                            name="forename"
+                                                            minOccurs="0"
+                                                            maxOccurs="unbounded" />
+                                                      </xs:sequence>
+                                                   </xs:complexType>
+                                                </xs:element>
+                                             </xs:sequence>
+                                          </xs:complexType>
+                                       </xs:element>
+                                    </xs:sequence>
+                                 </xs:complexType>
+                              </xs:element>
+                              <xs:element name="personids" minOccurs="0">
+                                 <xs:complexType>
+                                    <xs:sequence>
+                                       <xs:element name="personid" minOccurs="0"
+                                          maxOccurs="unbounded">
+                                          <xs:complexType>
+                                             <xs:sequence>
+                                                <xs:element name="type"
+                                                   minOccurs="0" />
+                                                <xs:element name="number"
+                                                   minOccurs="0" />
+                                             </xs:sequence>
+                                          </xs:complexType>
+                                       </xs:element>
+                                    </xs:sequence>
+                                 </xs:complexType>
+                              </xs:element>
+                              <xs:element name="birthdates" minOccurs="0">
+                                 <xs:complexType>
+                                    <xs:sequence>
+                                       <xs:element name="birthdate"
+                                          minOccurs="0" maxOccurs="unbounded">
+                                          <xs:complexType>
+                                             <xs:sequence>
+                                                <xs:element name="usage"
+                                                   minOccurs="0" />
+                                                <xs:element name="age"
+                                                   minOccurs="0" />
+                                                <xs:element name="agerange"
+                                                   minOccurs="0" />
+                                                <xs:element name="dob"
+                                                   minOccurs="0" />
+                                                <xs:element name="dobrange"
+                                                   minOccurs="0" />
+                                             </xs:sequence>
+                                          </xs:complexType>
+                                       </xs:element>
+                                    </xs:sequence>
+                                 </xs:complexType>
+                              </xs:element>
+                              <xs:element name="placeofbirth" minOccurs="0" />
+                              <xs:element name="countryofbirth" minOccurs="0" />
+                              <xs:element name="nationality" minOccurs="0" />
+                              <xs:element name="gender" minOccurs="0" />
+                              <xs:element name="heightmetres" minOccurs="0" />
+                              <xs:element name="heightmetresrange" minOccurs="0" />
+                              <xs:element name="heightfeet" minOccurs="0" />
+                              <xs:element name="heightinches" minOccurs="0" />
+                              <xs:element name="heightfeetinchesrange"
+                                 minOccurs="0" />
+                              <xs:element name="ethnicappearance" minOccurs="0" />
+                              <xs:element name="personoccupation" minOccurs="0" />
+                              <xs:element name="details" minOccurs="0" />
+                              <xs:element name="attachments" minOccurs="0">
+                                 <xs:complexType>
+                                    <xs:sequence>
+                                       <xs:element name="attachment"
+                                          minOccurs="0" maxOccurs="unbounded">
+                                          <xs:complexType>
+                                             <xs:sequence>
+                                               <xs:element 
+                                                   name="edittype" 
+                                                   minOccurs="0"/>
+                                                <xs:element
+                                                   name="attachmentimage"
+                                                   minOccurs="0" />
+                                                <xs:element name="title"
+                                                   minOccurs="0" />
+                                                <xs:element
+                                                   name="attachmenttype"
+                                                   minOccurs="0" />
+                                             </xs:sequence>
+                                          </xs:complexType>
+                                       </xs:element>
+                                    </xs:sequence>
+                                 </xs:complexType>
+                              </xs:element>
+                              <xs:element name="emailaddresses" minOccurs="0">
+                                 <xs:complexType>
+                                    <xs:sequence>
+                                       <xs:element name="emailaddress"
+                                          minOccurs="0" maxOccurs="unbounded">
+                                          <xs:complexType>
+                                             <xs:sequence>
+                                                <xs:element name="emailtype"
+                                                   minOccurs="0" />
+                                                <xs:element name="email"
+                                                   minOccurs="0" />
+                                             </xs:sequence>
+                                          </xs:complexType>
+                                       </xs:element>
+                                    </xs:sequence>
+                                 </xs:complexType>
+                              </xs:element>
+                              <xs:element name="phonenumbers" minOccurs="0">
+                                 <xs:complexType>
+                                    <xs:sequence>
+                                       <xs:element name="phonenumber"
+                                          minOccurs="0" maxOccurs="unbounded">
+                                          <xs:complexType>
+                                             <xs:sequence>
+                                                <xs:element
+                                                   name="telephonenumbertype"
+                                                   minOccurs="0" />
+                                                <xs:element
+                                                   name="telephonenumbercategory"
+                                                   minOccurs="0" />
+                                                <xs:element
+                                                   name="telephonenumber"
+                                                   minOccurs="0" />
+                                             </xs:sequence>
+                                          </xs:complexType>
+                                       </xs:element>
+                                    </xs:sequence>
+                                 </xs:complexType>
+                              </xs:element>
+                              <xs:element name="locations" minOccurs="0">
+                                 <xs:complexType>
+                                    <xs:sequence>
+                                       <xs:element name="location" minOccurs="0"
+                                          maxOccurs="unbounded">
+                                          <xs:complexType>
+                                             <xs:sequence>
+                                                <xs:element name="locationtype"
+                                                   minOccurs="0" />
+                                                <xs:element name="line1"
+                                                   minOccurs="0" />
+                                                <xs:element name="line2"
+                                                   minOccurs="0" />
+                                                <xs:element name="line3"
+                                                   minOccurs="0" />
+                                                <xs:element name="line4"
+                                                   minOccurs="0" />
+                                                <xs:element name="line5"
+                                                   minOccurs="0" />
+                                                <xs:element name="country"
+                                                   minOccurs="0" />
+                                                <xs:element name="postcode"
+                                                   minOccurs="0" />
+                                             </xs:sequence>
+                                          </xs:complexType>
+                                       </xs:element>
+                                    </xs:sequence>
+                                 </xs:complexType>
+                              </xs:element>
+                              <xs:element name="vehicles" minOccurs="0">
+                                 <xs:complexType>
+                                    <xs:sequence>
+                                       <xs:element name="vehicle" minOccurs="0"
+                                          maxOccurs="unbounded">
+                                          <xs:complexType>
+                                             <xs:sequence>
+                                                <xs:element name="vrm"
+                                                   minOccurs="0" />
+                                             </xs:sequence>
+                                          </xs:complexType>
+                                       </xs:element>
+                                    </xs:sequence>
+                                 </xs:complexType>
+                              </xs:element>
+                           </xs:sequence>
+                        </xs:complexType>
+                     </xs:element>
+                  </xs:sequence>
+               </xs:complexType>
+            </xs:element>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+</xs:schema>

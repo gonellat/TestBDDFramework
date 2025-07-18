@@ -1,0 +1,66 @@
+<searchandupdate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../searchandupdate.xsd">
+          <searchdetails>		
+            <searchpreliminaries>
+                <!-- Fields not mentioned will default -->
+                <titleofsearch>Automatically</titleofsearch>
+                <reason>Technical Support</reason>
+                <justification>ABC-5705 PER ATM Search 03</justification>
+                <searchtype>ABC ID Search</searchtype>
+                <abcarrayindex>3</abcarrayindex>
+                <entitytype>Person</entitytype>
+            </searchpreliminaries>
+            </searchdetails>
+            <updateentity>
+             <persons>
+              <person>
+              <recordid></recordid>
+              <createentrypage></createentrypage>
+                <persondetailspage>
+                    <accesscontrolsection>
+                    <mopidate>TODAY+2MONTHS</mopidate>
+                   </accesscontrolsection>
+                    <personnames>
+                        <personname>
+                            <usage>NOCHANGE</usage>
+                            <surname>NOCHANGE</surname>
+                            <forenames>
+                                <forename>DELETE</forename>
+                            </forenames>
+                        </personname>
+                    </personnames>
+                    <personids>
+                        <personid>
+                            <type>PNCID</type>
+                            <number>5705032</number>
+                        </personid>
+                    </personids>
+                    <birthdates>
+                        <birthdate>
+                            <usage>NOCHANGE</usage>
+                            <age>NOCHANGE</age>
+                            <agerange>NOCHANGE</agerange>
+                        </birthdate>
+                    </birthdates>
+                    <placeofbirth>NOCHANGE</placeofbirth>
+                    <countryofbirth>NOCHANGE</countryofbirth>
+                    <nationality>NOCHANGE</nationality>
+                    <immigrationstatus>DELETE</immigrationstatus>
+                    <heightmetres>DELETE</heightmetres>
+                    <ethnicappearance>DELETE</ethnicappearance>
+                    <personoccupation>DELETE</personoccupation>
+                    <localreferencenumber>DELETE</localreferencenumber>
+                    <details>DELETE</details>
+                    <attachments>
+                        <attachment>
+                            <edittype>DELETE</edittype>
+                            <attachmentimage>DELETE</attachmentimage>
+                            <localreference>DELETE</localreference>
+                            <title>DELETE</title>
+                            <attachmenttype>DELETE</attachmenttype>
+                        </attachment>
+                    </attachments>
+                </persondetailspage>
+             </person>
+           </persons>
+         </updateentity>
+   	</searchandupdate>

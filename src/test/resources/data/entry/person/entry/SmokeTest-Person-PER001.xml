@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<scenariodata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../entry.xsd">
+
+   <testdetails>
+      <testid>SmokeTest-ViewPerson</testid>
+   </testdetails>
+
+   <persons>
+
+      <!-- Source Script: SmokeTest-ViewPerson -->
+      
+      <person>
+         <recordid>SmokeTest-Person-PER001</recordid>
+         <createentrypage>
+            <thirdpartyentry>false</thirdpartyentry>
+            <justification>SmokeTest-ViewPerson</justification>
+
+         </createentrypage>
+         <persondetailspage>
+            <justificationsection>
+               <justification>SmokeTest-ViewPerson</justification>
+            </justificationsection>
+            <accesscontrolsection>
+            </accesscontrolsection>
+            
+            <personnames>
+               <personname>
+                  <usage>Real Name</usage>
+                  <surname>Wood</surname>
+                  <forenames>
+                     <forename>Sam</forename>
+                  </forenames>
+               </personname>
+            </personnames>
+            
+            <personids>
+               <personid>
+                  <number>456789</number>
+               </personid>                     
+            </personids>
+            
+            <birthdates>
+               <birthdate>
+                  <usage>Date</usage>
+                  <dob>1956-12-10</dob>
+               </birthdate>
+            </birthdates>            
+               
+            
+         </persondetailspage>
+      </person>
+   </persons>
+</scenariodata>

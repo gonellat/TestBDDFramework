@@ -1,0 +1,23 @@
+<suite name="Cucumber Test Suite" parallel="false">
+  <!--  Test For Suite A Tests -->
+  <listeners>
+    <listener class-name="listener.ParameterListener"/>
+  </listeners>
+  
+    <!--     Test For Suite A Tests -->
+  <test name="SuiteA" parallel="methods" thread-count="1">
+    <parameter name="runnerClass" value="runner.suites.XmlCucumberRunnerSuiteATest"/>
+    <parameter name="suiteName" value="SuiteA"/>
+    <classes>
+      <class name="runner.suites.XmlCucumberRunnerSuiteATest"/>
+    </classes>
+  </test>
+  <!--     Test For Suite B Tests -->
+  <test name="SuiteB" parallel="methods" thread-count="1">"
+   <parameter name="runnerClass" value="runner.suites.XmlCucumberRunnerSuiteBTest"/>
+   <parameter name="suiteName" value="SuiteB"/>
+    <classes>
+      <class name="runner.suites.XmlCucumberRunnerSuiteBTest"/>
+    </classes>
+  </test>
+</suite>

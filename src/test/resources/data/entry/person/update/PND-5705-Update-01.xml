@@ -1,0 +1,53 @@
+<searchandupdate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../searchandupdate.xsd">
+          <searchdetails>		
+            <searchpreliminaries>
+                <!-- Fields not mentioned will default -->
+                <titleofsearch>Automatically</titleofsearch>
+                <reason>Technical Support</reason>
+                <justification>ABC-5705 PER ATM Search 01</justification>
+                <searchtype>ABC ID Search</searchtype>
+                <abcarrayindex>1</abcarrayindex>
+                <entitytype>Person</entitytype>
+            </searchpreliminaries>
+           </searchdetails>
+            <updateentity>
+             <persons>
+              <person>
+              <recordid></recordid>
+              <createentrypage></createentrypage>
+                <persondetailspage>
+                    <personnames>
+                        <personname>
+                            <surname>Zerofive</surname>
+                            <forenames>
+                                <forename>Fiveseven</forename>
+                            </forenames>
+                        </personname>
+                    </personnames>
+                    <birthdates>
+                        <birthdate>
+                            <dob>2006-08-06</dob>
+                        </birthdate>
+                    </birthdates>
+                    <nationality>France</nationality>
+                    <gender>Female</gender>
+                    <localreferencenumber>5705/PER001</localreferencenumber>
+                    <details>NOCHANGE</details>
+                    <attachments>
+                        <!-- Delete the existing Attachment details -->
+                        <attachment>
+                             <edittype>DELETE</edittype>
+                        </attachment>
+                        <!-- Add new Attachment details -->
+                        <attachment>
+                             <attachmentimage>5705-ATM001b.JPG</attachmentimage>
+                             <localreference>5705/IMG001b/ref</localreference>
+                             <title>5705 IMG001b</title>
+                             <attachmenttype>Image - Photograph</attachmenttype>
+                         </attachment>
+                    </attachments>
+                </persondetailspage>
+             </person>
+           </persons>
+         </updateentity>
+   	</searchandupdate>

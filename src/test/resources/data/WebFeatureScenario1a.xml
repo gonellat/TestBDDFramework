@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<scenariodata
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:noNamespaceSchemaLocation="scenariodatavalidation.xsd">
+
+   <signuppage>
+      <name>automationTest</name>
+      <emailaddress>automationTest@hotmail.com</emailaddress>
+    </signuppage>
+    <accountinfopage>
+      <firstname>Tim</firstname>
+      <lastname>Gonella</lastname>
+    </accountinfopage>
+</scenariodata>
