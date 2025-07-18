@@ -19,15 +19,17 @@ public class TestInitialization {
       isInit = false;
    }
 
+   /**
+    * Default Constructor
+    */
    private TestInitialization() {
+      throw new IllegalStateException("Utility class");
    }
 
    /**
-    * This is the first method run. It is called by the test listener and sets up the configuration for the test run. It
-    * also sets the rest-assured run filters for logging
+    * Initializes drivers, logging, and reporting for each test scenario.
     * 
-    * @throws IOException General IO Exception
- * @throws InterruptedException 
+    * @throws IOException If configuration or resources cannot be loaded
     */
    public static synchronized void init() throws IOException {
       if (!isInit) {

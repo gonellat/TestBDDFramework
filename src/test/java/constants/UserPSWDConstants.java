@@ -15,5 +15,4 @@ public class UserPSWDConstants {
    /** ABCUSER1PSWD Constant **/
    public static final String ABCUSER1PSWD = "ABCUSER1_PSWD";
 
-
 }

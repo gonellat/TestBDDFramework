@@ -14,11 +14,21 @@ import utils.JsonDataHandler;
 import utils.BaseTestConfiguration;
 import utils.Helpers.Products;
 
-public class ProductsApi extends BaseApi{
+/**
+ * Handles API interactions related to products.
+ */
+public class ProductsApi extends BaseApi {
 
-   // Standard logger instance for this class 
+   // Standard logger instance for this class
    private static final Logger LOG = LogManager.getLogger(ProductsApi.class);
-   
+
+   /**
+    * Default Constructor
+    */
+   public ProductsApi() {
+
+   }
+
    /**
     * This method calls a get request on the products api and saves the response in the products helper class
     */
@@ -33,13 +43,13 @@ public class ProductsApi extends BaseApi{
    public void it_will_contain_a_blue_top() {
       iShouldReceiveASuccessStatusCode(Products.getTheLatestProductResponse());
 
-      // Extract the actual results array from the Json response message 
+      // Extract the actual results array from the Json response message
       JsonObject jsonObjResponse = JsonDataHandler.createJsonObject(Products.getTheLatestProductResponse().asString());
       JsonArray jsonResponseProductsArray = (JsonArray) jsonObjResponse.get("products");
 
-      // Now see if the expected products has been returned 
+      // Now see if the expected products has been returned
       boolean foundExpectedData = false;
-      for (int x=0; x<jsonResponseProductsArray.size(); x++) {
+      for (int x = 0; x < jsonResponseProductsArray.size(); x++) {
          JsonObject jsonResponseObject = (JsonObject) jsonResponseProductsArray.get(x);
          LOG.info(jsonResponseObject);
 
@@ -48,7 +58,7 @@ public class ProductsApi extends BaseApi{
             break;
          }
       }
-      
+
       assertThat("Blue Top Not Found", foundExpectedData, is(true));
    }
 }

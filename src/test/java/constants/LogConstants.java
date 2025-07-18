@@ -11,6 +11,9 @@ public class LogConstants {
       throw new IllegalStateException("Utility class");
    }
 
+   /**
+    * Constant for page title incorrect warning
+    */
    public static final String THE_PAGE_TITLE_IS_NOT_CORRECT = "The page title is not correct";
 
 }

@@ -1,5 +1,14 @@
 package pages;
 
-public class ProductsPage extends BasePageClass{
+/**
+ * Page object for entering / selecting product information.
+ */
+public class ProductsPage extends BasePageClass {
 
+   /**
+    * Default Constructor
+    */
+   public ProductsPage() {
+
+   }
 }

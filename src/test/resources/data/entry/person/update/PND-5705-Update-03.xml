@@ -1,5 +1,5 @@
 <searchandupdate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../searchandupdate.xsd">
-          <searchdetails>		
+          <searchdetails>      
             <searchpreliminaries>
                 <!-- Fields not mentioned will default -->
                 <titleofsearch>Automatically</titleofsearch>
@@ -63,4 +63,4 @@
              </person>
            </persons>
          </updateentity>
-   	</searchandupdate>
+      </searchandupdate>

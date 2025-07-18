@@ -2,34 +2,48 @@ package pages;
 
 import utils.TestLoggerHolder;
 
-public class SignUpLoginPage extends BasePageClass{
+/**
+ * Page object for the Sign Up / Login page.
+ */
+public class SignUpLoginPage extends BasePageClass {
 
-   //Locators
+   // Locators
    private static final String NAME = "css::input[type='text'][name='name']";
    private static final String EMAIL = "css::input[type='email'][data-qa='signup-email']";
    private static final String SIGNUP_BUTTON = "css::button[data-qa='signup-button']";
 
    /**
-    * This method enters a name
+    * Default Constructor
+    */
+   public SignUpLoginPage() {
+
+   }
+
+   /**
+    * Enters a name into the name field.
+    * 
+    * @param name The name to enter
     */
    public void enterName(String name) {
-      TestLoggerHolder.getLogger().info("name=" +name);
+      TestLoggerHolder.getLogger().info("{} {}", "name=", name);
       sendKeys(NAME, name);
    }
 
    /**
-    * This method enters an email
+    * Enters an email address.
+    * 
+    * @param emailAddress The email to enter
     */
    public void enterEmail(String emailAddress) {
-	   TestLoggerHolder.getLogger().info("emailAddress=" + emailAddress);
+      TestLoggerHolder.getLogger().info("{} {}", "emailAddress=", emailAddress);
       sendKeys(EMAIL, emailAddress);
    }
-   
+
    /**
     * This method clicks signup
     */
    public void clickSignUp() {
-	   TestLoggerHolder.getLogger().info("clicking signup");
+      TestLoggerHolder.getLogger().info("clicking signup");
       click(SIGNUP_BUTTON);
    }
 }
