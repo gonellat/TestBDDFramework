@@ -53,7 +53,7 @@ jobs:
       - name: Run Tests
         run: |
          mvn clean install -P cucumber \
-           -Dcucumber.filter.tags="@Web" \
+           -Dcucumber.filter.tags="@XMLDemo" \
            -Denv="local" \
            -Dbrowser=${{ matrix.browser }} \
            -Dheadless=TRUE \
@@ -67,12 +67,7 @@ jobs:
           -Dsonar.projectKey=gonellat_TestBDDFramework \
           -Dsonar.organization=gonellat \
           -Dsonar.host.url=https://sonarcloud.io \
-          -Dsonar.token=${{ secrets.SONAR_TOKEN }} \
-          -Dcucumber.filter.tags="@XMLDemo" \
-          -Denv="local" \
-          -Dbrowser=${{ matrix.browser }} \
-          -Dheadless=TRUE \
-          -DmaxLocalInstances=1
+          -Dsonar.token=${{ secrets.SONAR_TOKEN }}
 
       # ========== REPORT COLLECTION ==========
 
