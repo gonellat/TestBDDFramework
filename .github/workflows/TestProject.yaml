@@ -50,8 +50,14 @@ jobs:
         working-directory: ./base-project
         run: mvn clean install -DskipTests
   
-      - name: Build with Maven
-        run: mvn clean compile
+      - name: Run Tests
+        run: |
+         mvn clean install -P cucumber \
+           -Dcucumber.filter.tags="@Web" \
+           -Denv="local" \
+           -Dbrowser=${{ matrix.browser }} \
+           -Dheadless=TRUE \
+           -DmaxLocalInstances=1
 
       - name: SonarCloud Scan
         env:
