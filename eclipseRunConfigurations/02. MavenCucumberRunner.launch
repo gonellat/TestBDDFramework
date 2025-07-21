@@ -2,7 +2,7 @@
 <launchConfiguration type="org.eclipse.m2e.Maven2LaunchConfigurationType">
     <intAttribute key="M2_COLORS" value="0"/>
     <booleanAttribute key="M2_DEBUG_OUTPUT" value="false"/>
-    <stringAttribute key="M2_GOALS" value="clean install -P cucumber -Dcucumber.filter.tags=&quot;@Web&quot; -Denv=&quot;local&quot; -Dbrowser=&quot;CHROME&quot; -Dheadless=&quot;TRUE&quot; -DmaxLocalInstances=1"/>
+    <stringAttribute key="M2_GOALS" value="clean install -P cucumber -Dcucumber.filter.tags=&quot;@XMLDemo&quot; -Denv=&quot;local&quot; -Dbrowser=&quot;CHROME&quot; -Dheadless=&quot;FALSE&quot; -DmaxLocalInstances=1"/>
     <booleanAttribute key="M2_NON_RECURSIVE" value="false"/>
     <booleanAttribute key="M2_OFFLINE" value="false"/>
     <stringAttribute key="M2_PROFILES" value=""/>

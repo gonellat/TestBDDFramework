@@ -24,6 +24,7 @@ public class LoginRegisterPageSteps extends PageAccessStepsBase {
     */
    @When("I register a new user")
    public void i_register_a_new_user() {
+      homePage().clickConsent();
       homePage().clickSignupLogin();
       String name = XMLDataHandler.getLastElementValueWithTag("name");
       i_enter_a_user_name(name);

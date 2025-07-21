@@ -13,9 +13,13 @@ import utils.BaseTestConfiguration;
  * This runner supports parallel execution and Cucumber plugin integrations (Extent, JSON, JUnit).
  */
 @CucumberOptions(plugin = { "html:target/cucumber-html-report", "json:target/cucumber-reports/cucumber.json", "junit:target/cucumber.xml",
-      "pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
-      "summary" }, features = "src/test/resources/features", snippets = SnippetType.UNDERSCORE, glue = {
-            "step_definitions" }, tags = "@XMLDemo")
+                            "pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
+                            "summary" }, 
+                features = "src/test/resources/features",
+                snippets = SnippetType.UNDERSCORE,
+                glue={"step_definitions"}
+                ,tags="@XMLDemo"
+) 
 
 /**
  * Executes Cucumber tests using TestNG runner.

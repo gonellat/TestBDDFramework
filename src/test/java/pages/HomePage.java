@@ -18,6 +18,7 @@ public class HomePage extends BasePageClass {
    // Locators
    private static final String PRODUCTS = "css::a[href*='/products']";
    private static final String SIGNUP_LOGIN = "css::a[href*='/login']";
+   private static final String CONSENT = "css::div[aria-label='This site asks for consent to use your data'] button[aria-label='Consent']";
 
    /**
     * This method opens the web site provided in the property file
@@ -45,5 +46,13 @@ public class HomePage extends BasePageClass {
    public void clickSignupLogin() {
       TestLoggerHolder.getLogger().info("Click Login Signup");
       click(SIGNUP_LOGIN);
+   }
+   
+   /**
+    * This method clicks Signup / login
+    */
+   public void clickConsent() {
+      TestLoggerHolder.getLogger().info("Click Consent");
+      click(CONSENT);
    }
 }
