@@ -40,6 +40,16 @@ jobs:
       - name: Make local edgedriver executable (optional fallback)
         run: chmod +x drivers/msedgedriver || true
 
+      - name: Checkout BaseAutomationFramework
+        uses: actions/checkout@v3
+        with:
+          repository: gonellat/BaseAutomationProject
+          path: base-project
+
+      - name: Build and install BaseAutomationFramework
+        working-directory: ./base-project
+        run: mvn clean install -DskipTests
+  
       - name: Build with Maven
         run: mvn clean compile
 
