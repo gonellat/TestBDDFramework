@@ -29,7 +29,7 @@ jobs:
         uses: browser-actions/setup-chrome@v1
 
       - name: Install Oracle JDBC manually
-        run: mvn install:install-file -Dfile=TestBDDFramework/lib/ojdbc6-11.2.0.4.jar -DgroupId=oracle -DartifactId=ojdbc6 -Dversion=11.2.0.4 -Dpackaging=jar
+        run: mvn install:install-file -Dfile=lib/ojdbc6-11.2.0.4.jar -DgroupId=oracle -DartifactId=ojdbc6 -Dversion=11.2.0.4 -Dpackaging=jar
 
       - name: Make local chromedriver executable (optional fallback)
         run: chmod +x TestBDDFramework/drivers/chromedriver || true
