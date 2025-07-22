@@ -1,5 +1,12 @@
 package pages;
 
+import java.time.Duration;
+import java.util.List;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import utils.TestConfiguration;
 import utils.TestLoggerHolder;
 
@@ -52,7 +59,19 @@ public class HomePage extends BasePageClass {
     * This method clicks Signup / login
     */
    public void clickConsent() {
-      TestLoggerHolder.getLogger().info("Click Consent");
-      click(CONSENT);
-   }
+      TestLoggerHolder.getLogger().info("Trying to click Consent (if present)");
+      try {
+          List<WebElement> consentButtons = findElementsBy(CONSENT); // modify your getElements to support the prefix
+          if (!consentButtons.isEmpty()) {
+              WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
+              WebElement consent = wait.until(ExpectedConditions.elementToBeClickable(consentButtons.get(0)));
+              consent.click();
+              TestLoggerHolder.getLogger().info("✅ Consent clicked");
+          } else {
+              TestLoggerHolder.getLogger().info("ℹ️ Consent popup not shown");
+          }
+      } catch (Exception e) {
+          TestLoggerHolder.getLogger().warn("⚠️ Consent popup present but not clickable: " + e.getMessage());
+      }
+  }
 }
