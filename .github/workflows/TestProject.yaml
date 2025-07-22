@@ -78,14 +78,10 @@ jobs:
       - name: Debug Report Path
         if: always()
         run: |
-          echo "🔍 GITHUB_ENV report_path: ${{ env.report_path }}"
-  
-      - name: Confirm report_path folder exists
-        if: env.report_path != 'NONE'
-        run: |
-          echo "📁 Listing contents of ${{ env.report_path }}"
-          ls -l ${{ env.report_path }}
-    
+          echo "📁 Quoted path: \"${{ env.report_path }}\""
+          echo "📁 Listing contents of report path"
+          ls -al "${{ env.report_path }}" || echo "⚠️ Directory not found"
+
       - name: Upload Extent Reports
         if: env.report_path != 'NONE'
         uses: actions/upload-artifact@v4
