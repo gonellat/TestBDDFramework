@@ -62,6 +62,7 @@ jobs:
           set -e
           if [ -d target/NewStyleReports ]; then
             latest_extent=$(ls -td target/NewStyleReports/New_Style_Report* 2>/dev/null | head -n 1)
+            echo "Found: $latest_extent"
             echo "report_path=$latest_extent" >> $GITHUB_ENV
           else
             echo "❌ No Extent report folder found."
@@ -71,8 +72,14 @@ jobs:
       - name: Debug Report Path
         if: always()
         run: |
-          echo "Report Path: $report_path"
+          echo "🔍 GITHUB_ENV report_path: ${{ env.report_path }}"
   
+      - name: Confirm report_path folder exists
+        if: env.report_path != 'NONE'
+        run: |
+          echo "📁 Listing contents of ${{ env.report_path }}"
+          ls -l ${{ env.report_path }}
+    
       - name: Upload Extent Reports
         if: ${{ env.report_path != 'NONE' }}
         uses: actions/upload-artifact@v4
