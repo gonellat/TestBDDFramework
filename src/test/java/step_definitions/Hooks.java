@@ -3,11 +3,13 @@ package step_definitions;
 import io.cucumber.java.Before;
 import io.cucumber.java.After;
 import io.cucumber.java.Scenario;
+import utils.DriverManager;
 import utils.DynamicRoutingUtil;
 import utils.TestInitialization;
 import utils.TestLoggerHolder;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.apache.logging.log4j.Logger;
 
@@ -53,6 +55,18 @@ public class Hooks {
     */
    @After
    public void afterScenario(Scenario scenario) {
-      TestLoggerHolder.getLogger().info("{} {}", "⏹ Finished scenario: ", scenario.getName());
+       TestLoggerHolder.getLogger().info("{} {}", "⏹ Finished scenario: ", scenario.getName());
+       List<String> tags = scenario.getSourceTagNames()
+                                   .stream()
+                                   .map(String::toLowerCase)
+                                   .toList();
+
+       if (tags.contains("@web") && DriverManager.getCurrentDriver() != null) {
+           try {
+               DriverManager.closeDriver();
+           } catch (Exception e) {
+               TestLoggerHolder.getLogger().error("❌ Error closing driver in @After hook: " + e.getMessage());
+           }
+       }
    }
 }
