@@ -56,6 +56,12 @@ jobs:
             -Dheadless=TRUE \
             -DmaxLocalInstances=1
 
+      - name: Debug Show report directories
+        if: always()
+        run: |
+          echo "📁 Listing all folders under target/"
+          find target -type d
+
       - name: Find Latest Extent Report Folder
         if: always()
         run: |
