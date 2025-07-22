@@ -25,25 +25,30 @@ public class Hooks {
 
    }
 
+// Ensure global init happens only once per test run
+   private static boolean isInitialized = false;
+
    /**
-    * Hook that runs before each scenario.
-    * <p>
-    * Initializes test configuration, drivers, and context.
+    * Hook that runs before each scenario to configure logging and context.
+    * Global test setup (drivers, config, extent) is initialized only once.
     *
-    * @param scenario the currently running scenario
+    * @param scenario the currently running Cucumber scenario
     */
    @Before(order = 0)
-   public void initializeScenario(Scenario scenario) {
-      try {
-         // 💡 This should load config, setup driver, filters, and Extent hooks
-         TestInitialization.init();
-      } catch (IOException e) {
-         throw new RuntimeException("Failed to initialize test", e);
-      }
+   public void beforeEachScenario(Scenario scenario) {
+       if (!isInitialized) {
+           try {
+               TestInitialization.init(); // Global init
+               isInitialized = true;
+           } catch (IOException e) {
+               throw new RuntimeException("❌ Failed to initialize global test config", e);
+           }
+       }
 
-      Logger log = DynamicRoutingUtil.createLoggerForTest(scenario.getName(), "global");
-      TestLoggerHolder.setLogger(log);
-      TestLoggerHolder.getLogger().info("{} {}", "▶ Starting scenario: ", scenario.getName());
+       // Per-scenario log routing
+       Logger log = DynamicRoutingUtil.createLoggerForTest(scenario.getName(), "global");
+       TestLoggerHolder.setLogger(log);
+       TestLoggerHolder.getLogger().info("▶ Starting scenario: {}", scenario.getName());
    }
 
    /**
