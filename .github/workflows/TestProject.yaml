@@ -37,6 +37,16 @@ jobs:
           mvn install:install-file -Dfile=lib/ojdbc6-11.2.0.4.jar \
             -DgroupId=oracle -DartifactId=ojdbc6 -Dversion=11.2.0.4 -Dpackaging=jar
 
+      - name: Checkout BaseAutomationFramework
+        uses: actions/checkout@v3
+        with:
+          repository: gonellat/BaseAutomationProject
+          path: base
+
+      - name: Install BaseAutomationFramework
+        working-directory: base
+        run: mvn clean install -DskipTests
+  
       - name: Run Tests
         run: |
           mvn clean install -P cucumber \
