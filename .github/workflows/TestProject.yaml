@@ -59,21 +59,28 @@ jobs:
       - name: Find Latest Extent Report Folder
         if: always()
         run: |
+          set -e
           if [ -d target/NewStyleReports ]; then
             latest_extent=$(ls -td target/NewStyleReports/New_Style_Report* 2>/dev/null | head -n 1)
             echo "report_path=$latest_extent" >> $GITHUB_ENV
           else
-            echo "No Extent report folder found"
-            echo "report_path=target/NOT_FOUND" >> $GITHUB_ENV
+            echo "❌ No Extent report folder found."
+            echo "report_path=NONE" >> $GITHUB_ENV
           fi
 
-      - name: Upload All Test Reports
+      - name: Upload Extent Reports
+        if: env.report_path != 'NONE'
+        uses: actions/upload-artifact@v4
+        with:
+          name: extent-report-${{ matrix.browser }}
+          path: ${{ env.report_path }}/
+
+      - name: Upload Other Test Logs
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: test-artifacts-${{ matrix.browser }}
+          name: test-logs-${{ matrix.browser }}
           path: |
-            ${{ env.report_path }}/
             target/logs/
             target/cucumber-reports/
 
