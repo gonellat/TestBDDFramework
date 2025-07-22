@@ -1,78 +1,52 @@
-name: Run Selenium BDD Tests
+name: TestBDDFramework - CI with SonarCloud
 
 on:
   push:
-    branches: [master, main]
-  workflow_dispatch:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
   test:
+    name: Run Tests on ${{ matrix.browser }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        #browser: [CHROME, FIREFOX, EDGE]
-        browser: [CHROME]
+        browser: [CHROME]  # You can add more later
 
     steps:
-      - name: Checkout code
+      - name: Checkout Code
         uses: actions/checkout@v3
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
         with:
-          path: "."
+          java-version: '21'
+          distribution: 'temurin'
 
-      - name: Set up Java
-        uses: actions/setup-java@v3
+      - name: Cache Maven packages
+        uses: actions/cache@v3
         with:
-          java-version: "21"
-          distribution: "temurin"
+          path: ~/.m2
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven
 
-      - name: Set up Chrome for Selenium
-        uses: browser-actions/setup-chrome@v1
+      - name: Install Oracle JDBC Manually
+        run: |
+          mvn install:install-file -Dfile=lib/ojdbc6-11.2.0.4.jar \
+            -DgroupId=oracle -DartifactId=ojdbc6 -Dversion=11.2.0.4 -Dpackaging=jar
 
-      - name: Install Oracle JDBC manually
-        run: mvn install:install-file -Dfile=lib/ojdbc6-11.2.0.4.jar -DgroupId=oracle -DartifactId=ojdbc6 -Dversion=11.2.0.4 -Dpackaging=jar
-
-      - name: Make local chromedriver executable (optional fallback)
-        run: chmod +x drivers/chromedriver || true
-
-      - name: Make local geckodriver executable (optional fallback)
-        run: chmod +x drivers/geckodriver || true
-
-      - name: Make local edgedriver executable (optional fallback)
-        run: chmod +x drivers/msedgedriver || true
-
-      - name: Checkout BaseAutomationFramework
-        uses: actions/checkout@v3
-        with:
-          repository: gonellat/BaseAutomationProject
-          path: base-project
-
-      - name: Build and install BaseAutomationFramework
-        working-directory: ./base-project
-        run: mvn clean install -DskipTests
-  
       - name: Run Tests
         run: |
-         mvn clean install -P cucumber \
-           -Dcucumber.filter.tags="@XMLDemo" \
-           -Denv="local" \
-           -Dbrowser=${{ matrix.browser }} \
-           -Dheadless=TRUE \
-           -DmaxLocalInstances=1
+          mvn clean install -P cucumber \
+            -Dcucumber.filter.tags="@XMLDemo" \
+            -Denv="local" \
+            -Dbrowser=${{ matrix.browser }} \
+            -Dheadless=TRUE \
+            -DmaxLocalInstances=1
 
-      - name: SonarCloud Scan
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: |
-          mvn verify sonar:sonar \
-          -Dsonar.projectKey=gonellat_TestBDDFramework \
-          -Dsonar.organization=gonellat \
-          -Dsonar.host.url=https://sonarcloud.io \
-          -Dsonar.token=${{ secrets.SONAR_TOKEN }} \
-          -DskipTests=true
-
-      # ========== REPORT COLLECTION ==========
-
-      - name: Find latest Extent Report folder
+      - name: Find Latest Extent Report Folder
         if: always()
         run: |
           latest_extent=$(ls -td target/NewStyleReports/New_Style_Report* | head -n 1)
@@ -87,3 +61,14 @@ jobs:
             ${{ env.report_path }}/
             target/logs/
             target/cucumber-reports/
+
+      - name: SonarCloud Scan
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: |
+          mvn verify sonar:sonar \
+            -Dsonar.projectKey=gonellat_TestBDDFramework \
+            -Dsonar.organization=gonellat \
+            -Dsonar.host.url=https://sonarcloud.io \
+            -Dsonar.token=${{ secrets.SONAR_TOKEN }} \
+            -DskipTests=true
