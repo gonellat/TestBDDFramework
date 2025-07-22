@@ -67,7 +67,8 @@ jobs:
           -Dsonar.projectKey=gonellat_TestBDDFramework \
           -Dsonar.organization=gonellat \
           -Dsonar.host.url=https://sonarcloud.io \
-          -Dsonar.token=${{ secrets.SONAR_TOKEN }}
+          -Dsonar.token=${{ secrets.SONAR_TOKEN }} \
+          -DskipTests=true
 
       # ========== REPORT COLLECTION ==========
 
