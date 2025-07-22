@@ -14,7 +14,7 @@ import utils.BaseTestConfiguration;
  */
 @CucumberOptions(plugin = { "html:target/cucumber-html-report", "json:target/cucumber-reports/cucumber.json", "junit:target/cucumber.xml",
                             "pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
-                            "summary" }, 
+                            "summary",  "listener.ListenerPlugin"  }, 
                 features = "src/test/resources/features",
                 snippets = SnippetType.UNDERSCORE,
                 glue={"step_definitions"}

@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import utils.TestConfiguration;
+import utils.BaseTestConfiguration;
 import utils.TestLoggerHolder;
 
 /**
@@ -32,7 +32,7 @@ public class HomePage extends BasePageClass {
     */
    public void openPage() {
       TestLoggerHolder.getLogger().info("Opening website");
-      String site = TestConfiguration.getURL();
+      String site = BaseTestConfiguration.getURL();
       getDriver().get(site);
    }
 
