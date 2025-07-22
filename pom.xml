@@ -307,11 +307,10 @@
       </plugins>
 
       <testResources>
+         <!-- Your test project’s test resources -->
          <testResource>
-            <directory>${project.build.directory}/../base/target/classes</directory>
-            <includes>
-               <include>extent.properties</include>
-            </includes>
+            <directory>src/test/resources</directory>
+            <filtering>false</filtering>
          </testResource>
       </testResources>
    </build>
