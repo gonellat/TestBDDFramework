@@ -68,8 +68,13 @@ jobs:
             echo "report_path=NONE" >> $GITHUB_ENV
           fi
 
+      - name: Debug Report Path
+        if: always()
+        run: |
+          echo "Report Path: $report_path"
+  
       - name: Upload Extent Reports
-        if: env.report_path != 'NONE'
+        if: ${{ env.report_path != 'NONE' }}
         uses: actions/upload-artifact@v4
         with:
           name: extent-report-${{ matrix.browser }}
