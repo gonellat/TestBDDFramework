@@ -312,6 +312,9 @@
             <directory>src/test/resources</directory>
             <filtering>false</filtering>
          </testResource>
+         <testResource>
+            <directory>${project.build.directory}/../base/target/classes</directory>
+         </testResource>
       </testResources>
    </build>
 

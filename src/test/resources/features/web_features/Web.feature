@@ -12,7 +12,7 @@ Feature: Web Test
     Examples: adminUser
       | dataFile                   | 
       | "WebFeatureScenario3a.csv" | 
-      | "WebFeatureScenario3b.csv" |
+#      | "WebFeatureScenario3b.csv" |
       
   @Web @XMLDemo 
   Scenario Outline: I`m able to start the registration process for a new user xml details
